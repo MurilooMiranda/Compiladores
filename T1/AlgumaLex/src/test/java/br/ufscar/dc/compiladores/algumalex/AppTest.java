@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores;
+package br.ufscar.dc.compiladores.algumalex;
 
 import static org.junit.Assert.assertTrue;
 

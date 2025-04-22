@@ -1,0 +1,5 @@
+br/ufscar/dc/compiladores/algumalex/LeitorDeArquivosTexto.class
+br/ufscar/dc/compiladores/algumalex/Token.class
+br/ufscar/dc/compiladores/algumalex/TipoToken.class
+br/ufscar/dc/compiladores/algumalex/AlgumaLexico.class
+br/ufscar/dc/compiladores/algumalex/App.class
