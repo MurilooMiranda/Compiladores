@@ -15,9 +15,9 @@ import org.antlr.v4.runtime.Token;
 
 /**
  *
- * @author Lucas Sciarra Gonçalves, Enzo Youji Murayama, Gabriel Henrique Alves Zago
+ * @author Daniel de Souza Sobrinho Macedo - 813524, Murilo de Miranda Silva - 812069
  * 
- * Analisador léxico para a Linguagem Algoritmica desenvolvida pelo professor Jander do DC-UFSCAR
+ * Analisador léxico para a Linguagem Algoritmica 
  */
 
 public class AnalisadorLexico {
