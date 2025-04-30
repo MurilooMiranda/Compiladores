@@ -1,9 +1,10 @@
-// Classe criada para a geração de mensagens personalizadas para os
-// tipos de erros que são identificados pelo programa.
+/* 
+Classe criada para a geração de mensagens personalizadas para os
+tipos de erros que são identificados pelo programa.
+*/ 
 
 package br.ufscar.dc.compiladores.t2;
 
-// Importações necessárias para seu funcionamento.
 import java.io.PrintWriter;
 import java.util.BitSet;
 import org.antlr.v4.runtime.ANTLRErrorListener;
@@ -23,13 +24,9 @@ public class ErroCustomizado implements ANTLRErrorListener {
     
     @Override
     public void	syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
-        // Aqui vamos colocar o tratamento de erro customizado
-
-        // Token que será analisado.
+        
         Token t = (Token) offendingSymbol;
         
-        // Dentre as opções disponíveis, o programa identifica a que está
-        // de acordo com a saída desejada.
         switch (t.getType()) { // OBS: os valores de t.getType() podem ser conferidos no arquivo t2SintLexer.tokens.
             case -1: // -1 refere-se ao token EOF, que indica o fim do programa analisado.
                 pw.println("Linha " + line + ": erro sintatico proximo a EOF");
@@ -47,8 +44,6 @@ public class ErroCustomizado implements ANTLRErrorListener {
                 pw.println("Linha " + line + ": erro sintatico proximo a " + t.getText());
                 break;
         }  
-        
-        // Encerramente da compilação.
         pw.println("Fim da compilacao"); 
         throw new RuntimeException();
     }
