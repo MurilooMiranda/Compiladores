@@ -1,4 +1,3 @@
-// Pacotes e importações básicas para o funcionamento do programa.
 package br.ufscar.dc.compiladores.t2;
 
 import java.io.File;
@@ -12,26 +11,20 @@ public class T2 {
     
     public static void main(String args[]) throws IOException {
         
-        // Abertura do arquivo para leitura e escrita.
         try(PrintWriter pw = new PrintWriter(new File(args[1]))) { 
             CharStream cs = CharStreams.fromFileName(args[0]);
             
-            // Geração dos tokens que serão utilizados para as verificações.
             t2SintLexer lexer = new t2SintLexer(cs);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             
-            // Início do processo de análise.
             t2SintParser parser = new t2SintParser(tokens);
 
-            // Para este programa, foram definidoas mensagens de erros
-            // personalizadas, mais detalhadas na classe ErroCustomizado.java.
             ErroCustomizado mcel = new ErroCustomizado(pw);
-            parser.removeErrorListeners(); // Remove os erros pré-definidos.
-            parser.addErrorListener(mcel); // Adiciona os erros customizados.
+            parser.removeErrorListeners(); 
+            parser.addErrorListener(mcel); 
 
-            // Analisa o programa de entrada.
             parser.programa();
          
-        } catch(RuntimeException e){} // Exceção criada para evitar mensagens duplicadas.
+        } catch(RuntimeException e){} 
     }
 }
