@@ -1,14 +1,3 @@
-/*
-Aluno: Guilherme Santos de Godoy
-RA: 758710
-Curso: Ciência da Computação
-Disciplina: Construção de Compiladores
-Professor: Daniel Lucrédio
-
-OBS: mais informações sobre a gramática podem ser encontradas no arquivo de
-descrição anexado.
-*/
-
 // Pacotes e importações básicas para o funcionamento do programa.
 package br.ufscar.dc.compiladores.t2;
 
