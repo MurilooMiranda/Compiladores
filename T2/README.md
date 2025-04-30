@@ -56,7 +56,6 @@ java -jar <caminho_do_jar> <caminho_do_arquivo_de_entrada> <caminho_do_arquivo_d
 java -jar C:\Compiladores\t2-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Compiladores\teste.txt C:\Compiladores\saida.txt
 ```
 
-> **Observação:** O uso dos casos de teste fornecidos pelo professor é altamente recomendado, pois eles foram elaborados com base na gramática utilizada.  
 > É possível criar novos testes, desde que sigam as regras definidas no arquivo `t2Sint.g4`.
 
 ---
