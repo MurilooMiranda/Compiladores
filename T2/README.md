@@ -1,5 +1,3 @@
-Claro! Aqui está a versão do seu texto formatada como um arquivo `README.md` com estilo markdown adequado para GitHub:
-
 ```markdown
 # 🧠 Analisador Sintático
 
