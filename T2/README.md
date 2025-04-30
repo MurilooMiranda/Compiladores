@@ -1,4 +1,4 @@
-```markdown
+
 # 🧠 Analisador Sintático
 
 Este projeto corresponde ao **Trabalho 2** da disciplina **Construção de Compiladores**, focado no desenvolvimento de um analisador sintático para a **Linguagem Algorítmica** (UFSCar/DC).  
