@@ -1,6 +1,4 @@
----
-
-# 🧠 Analisador Léxico
+## 🧠 Analisador Léxico
 
 Este projeto é um **analisador léxico em Java**, desenvolvido com **ANTLR 4** e gerenciado via **Apache Maven**.
 
