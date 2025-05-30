@@ -1,4 +1,4 @@
-// Generated from br\u005Cufscar\dc\compiladores\t2\t2Sint.g4 by ANTLR 4.10.1
+// Generated from br/ufscar/dc/compiladores/t2/t2Sint.g4 by ANTLR 4.10.1
 package br.ufscar.dc.compiladores.t2;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

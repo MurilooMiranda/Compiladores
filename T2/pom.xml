@@ -56,11 +56,5 @@
             <version>4.10.1</version>
             <classifier>complete</classifier>
         </dependency>
-        <dependency>
-            <groupId>br.ufscar.dc.compiladores</groupId>
-            <artifactId>t1</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
     </dependencies>    
 </project>

@@ -11,7 +11,6 @@ Utiliza **ANTLR 4**, **Apache Maven** e foi desenvolvido na **IDE NetBeans**.
 Certifique-se de ter os seguintes softwares instalados:
 
 - Java JDK **18.0.1.1** ou superior  
-- NetBeans **13** ou superior  
 - Apache Maven
 
 ---
