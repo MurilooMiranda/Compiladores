@@ -20,11 +20,11 @@ public class T4 {
                 
                 t4GramParser parser = new t4GramParser(tokens);
                 ProgramaContext arvore = parser.programa();
-                T4Semantico t4s = new T4Semantico();
+                Semantico t4s = new Semantico();
                 
                 t4s.visitPrograma(arvore);
                 
-                T4SemanticoUtils.errosSemanticos.forEach((s) -> pw.println(s));
+                SemanticoUtils.errosSemanticos.forEach((s) -> pw.println(s));
                 pw.println("Fim da compilacao");
                 pw.close();                
             } catch (RuntimeException e) {
