@@ -1,4 +1,4 @@
-# 🧠 Analisador Léxico
+# 🧠 Analisador Semântico (Parte 1)
 
 Este projeto é a **primeira parte do Analisador Semântico** para a Linguagem Algorítmica, desenvolvido em **Java** com **ANTLR 4** e gerenciado via **Apache Maven**.
 
