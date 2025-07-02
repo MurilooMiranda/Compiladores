@@ -166,7 +166,7 @@ Contém o conteúdo da receita formatado com:
 * Lista numerada com as instruções de preparo
 * Notas de erro (caso existam)
 
-#### OBS: **Se executar com o script, esses arquivos vão ser gerados na pasta /results, tanto o .txt quanto o .html, de cada um dos casos teste**
+#### OBS: **Se executar com o script, esses arquivos vão ser gerados na pasta /results, tanto o .txt quanto o .html, de cada um dos casos teste.**
 ---
 
 ## 7. Conclusão
