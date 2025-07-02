@@ -59,7 +59,7 @@ Para rodar o projeto localmente:
 1. Certifique-se de que o Java está instalado:
    ```bash
    java -version
-````
+    ````
 
 2. Instale o Apache Maven:
 
