@@ -1,0 +1,2 @@
+Erro semântico: receita sem ingredientes.
+Erro semântico: receita sem modo de preparo.
