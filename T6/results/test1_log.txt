@@ -1,1 +1,2 @@
+Erros encontrados durante a análise:
 Análise semântica concluída: nenhum erro encontrado.

@@ -1,1 +1,6 @@
+Erros encontrados durante a análise:
+Erros léxicos/sintáticos encontrados:
+[PARSER] Erro na linha 7:0 - mismatched input '<EOF>' expecting {UNIT, ID, INT, WS}
+
+Erros semânticos encontrados:
 Erro semântico: receita sem modo de preparo.

@@ -21,15 +21,17 @@ for testcase in casosTeste/*.reclang; do
   echo "📝 Rodando caso de teste: $name"
   echo "=============================="
 
-  # Copia arquivo de teste atual para entrada.reclang
+  # Copia o arquivo de teste atual para entrada.reclang
   cp "$testcase" entrada.reclang
 
-  # Executa seu compilador com Maven
-  mvn exec:java -Dexec.mainClass="br.ufscar.dc.compiladores.Main"
+  # Executa o compilador com Maven
+  if ! mvn exec:java -Dexec.mainClass="br.ufscar.dc.compiladores.Main"; then
+    echo "❌ Erro durante execução do caso $name"
+  fi
 
   # Salva os resultados com nomes distintos na pasta results/
-  cp saida.html "results/${name}_saida.html"
-  cp log.txt "results/${name}_log.txt"
+  cp -f saida.html "results/${name}_saida.html" 2>/dev/null || true
+  cp -f log.txt "results/${name}_log.txt" 2>/dev/null || true
 done
 
 echo ""

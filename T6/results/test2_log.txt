@@ -1,1 +1,6 @@
+Erros encontrados durante a análise:
+Erros léxicos/sintáticos encontrados:
+[PARSER] Erro na linha 3:0 - mismatched input '\n' expecting INT
+
+Erros semânticos encontrados:
 Erro semântico: receita sem ingredientes.

@@ -4,13 +4,16 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 import br.ufscar.dc.compiladores.parser.RecipeLexer;
 import br.ufscar.dc.compiladores.parser.RecipeParser;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    private static boolean hasErrors = false;
+    private static final List<String> lexSynErrors = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         // Lê todo o conteúdo do arquivo de entrada
@@ -47,8 +50,9 @@ public class Main {
             public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol,
                     int line, int charPositionInLine,
                     String msg, RecognitionException e) {
-                System.err.println("[LEXER] Erro na linha " + line + ":" + charPositionInLine + " - " + msg);
-                hasErrors = true;
+                String errorMsg = String.format("[LEXER] Erro na linha %d:%d - %s", line, charPositionInLine, msg);
+                System.err.println(errorMsg);
+                lexSynErrors.add(errorMsg);
             }
         });
 
@@ -61,17 +65,16 @@ public class Main {
             public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol,
                     int line, int charPositionInLine,
                     String msg, RecognitionException e) {
-                System.err.println("[PARSER] Erro na linha " + line + ":" + charPositionInLine + " - " + msg);
-                hasErrors = true;
+                String errorMsg = String.format("[PARSER] Erro na linha %d:%d - %s", line, charPositionInLine, msg);
+                System.err.println(errorMsg);
+                lexSynErrors.add(errorMsg);
             }
         });
 
         // Inicia parsing a partir da regra 'program'
         ParseTree tree = parser.program();
 
-        // Não interrompe aqui: deixa o código seguir para analisar semântica e gerar arquivo
-
-        // Análise semântica
+        // Análise semântica (sempre feita)
         SemanticAnalyzer analyzer = new SemanticAnalyzer();
         analyzer.visit(tree);
 
@@ -91,17 +94,31 @@ public class Main {
             System.out.println("   - " + e);
         }
 
-        // Geração do log.txt conforme condição de erros
-        if (!analyzer.getErros().isEmpty()) {
-            // Se há erros semânticos, escreve eles
-            LogGenerator.gerarLog(analyzer.getErros());
-        } else if (hasErrors) {
-            // Se não tem erros semânticos mas tem erro léxico/sintático, avisa isso
-            LogGenerator.gerarLog(java.util.List.of("Erro léxico/sintático detectado."));
-        } else {
-            // Nenhum erro
-            LogGenerator.gerarLog(java.util.List.of("Análise semântica concluída: nenhum erro encontrado."));
+        // Debug no console sobre erros léxicos/sintáticos
+        System.out.println(">>> Erros léxicos/sintáticos encontrados: " + lexSynErrors.size());
+        for (String e : lexSynErrors) {
+            System.out.println("   - " + e);
         }
+
+        // Geração do log.txt com ambos os tipos de erro ou mensagem de sucesso
+        List<String> finalLog = new ArrayList<>();
+
+        if (!lexSynErrors.isEmpty()) {
+            finalLog.add("Erros léxicos/sintáticos encontrados:");
+            finalLog.addAll(lexSynErrors);
+            finalLog.add(""); // linha em branco entre seções
+        }
+
+        if (!analyzer.getErros().isEmpty()) {
+            finalLog.add("Erros semânticos encontrados:");
+            finalLog.addAll(analyzer.getErros());
+        }
+
+        if (finalLog.isEmpty()) {
+            finalLog.add("Análise semântica concluída: nenhum erro encontrado.");
+        }
+
+        LogGenerator.gerarLog(finalLog);
     }
 
     // Mapeia o tipo numérico do token para um nome legível
